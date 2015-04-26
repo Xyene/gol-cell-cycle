@@ -1,0 +1,30 @@
+import java.util.Arrays;
+
+/**
+ * Tudor Brindus
+ * 4 February 2015
+ * ICS3U1
+ * Submitted to: Mrs. Strelkovska
+ * <p>
+ * Prints my timetable for semester 2 to stdio.
+ */
+public class FormatExercise {
+    private static final Object[][] TIMETABLE = {
+            {1, "MCR3U6-02", "Darakjian, R.", "port 6"},
+            {2, "ICS3U1-01", "Strelkovska, H.", "118"},
+            {3, "SBI3U6-02", "Ferreira, L.", "207"},
+            {4, "SPH3U6-01", "Kang, L.", "220"}
+    };
+
+    public static void main(String[] argv) {
+        printLine();
+        System.out.printf("| # | %-10s| %-20s| %-10s|\n", "Code", "Teacher", "Location");
+        printLine();
+        Arrays.asList(TIMETABLE).forEach((row) -> System.out.printf("| %c | %-10s| %-20s| %-10s|\n", (char) ('A' + (int) row[0]), row[1], row[2], row[3]));
+        printLine();
+    }
+
+    public static void printLine() {
+        System.out.println("|" + new String(new char[49]).replaceAll("\0", "-") + "|");
+    }
+}
